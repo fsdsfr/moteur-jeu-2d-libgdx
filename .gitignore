@@ -11,3 +11,5 @@ bin/
 .settings/
 .classpath
 .project
+.gradle_local/
+.gradle_local/
