@@ -1,4 +1,4 @@
-т@echo off
+@echo off
 setlocal
 REM Script de lancement du jeu LibGDX Platformer
 REM Windows batch file
@@ -81,7 +81,7 @@ REM 3. Si aucun Gradle n'est trouve
 echo [ERREUR] Gradle n'est pas trouve.
 echo.
 echo Veuillez executer le script d'installation automatique :
-echo Right-click 'setup_and_run.ps1' -> Run with PowerShell
+echo Right-click 'setup_and_run.ps1' - Run with PowerShell
 echo Ou executez la commande suivante dans PowerShell :
 echo powershell -ExecutionPolicy Bypass -File setup_and_run.ps1
 echo.
@@ -90,7 +90,7 @@ echo.
 if not defined JAVA_HOME (
     echo.
     echo [WARN] JAVA_HOME n'est pas defini.
-    echo Si Gradle echoue avec JAVA_HOME invalide, installez un JDK (ex: 21) et definissez :
+    echo Si Gradle echoue avec JAVA_HOME invalide, installez un JDK (ex: 21^) et definissez :
     echo   setx JAVA_HOME "C:\Program Files\Java\jdk-21"
     echo Puis relancez ce script.
 )
