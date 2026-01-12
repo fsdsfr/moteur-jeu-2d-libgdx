@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+        resources {
+            srcDirs = ['assets']
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.badlogicgames.gdx:gdx:1.12.1'
+    implementation 'com.badlogicgames.gdx:gdx-backend-lwjgl3:1.12.1'
+    implementation 'com.badlogicgames.gdx:gdx-platform:1.12.1:natives-desktop'
+    
+    // Freetype Font Support
+    implementation 'com.badlogicgames.gdx:gdx-freetype:1.12.1'
+    implementation 'com.badlogicgames.gdx:gdx-freetype-platform:1.12.1:natives-desktop'
+    
+    // Tiled map support
+    implementation 'com.badlogicgames.gdx:gdx-tools:1.12.1'
+    
+    // JSON parsing
+    implementation 'com.google.code.gson:gson:2.10.1'
+    
+    testImplementation 'junit:junit:4.13.2'
+}
+
+application {
+    mainClassName = 'com.gameengine.game.DesktopLauncher'
+}
+
+// task run(type: JavaExec) removed to avoid conflict with application plugin
+/* task run(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.gameengine.game.DesktopLauncher'
+} */

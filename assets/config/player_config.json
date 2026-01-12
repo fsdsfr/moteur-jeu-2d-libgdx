@@ -1,0 +1,10 @@
+{
+  "width": 20,
+  "height": 60,
+  "maxMovementSpeed": 300,
+  "movementAcceleration": 1500,
+  "gravityStrength": 1000,
+  "maxFallSpeed": 600,
+  "jumpForce": 450,
+  "friction": 0.9
+}

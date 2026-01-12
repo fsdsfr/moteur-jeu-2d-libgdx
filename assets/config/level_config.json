@@ -1,0 +1,9 @@
+{
+  "name": "GrassLandsSimple",
+  "description": "Premier niveau du jeu de plateforme",
+  "tileWidth": 32,
+  "tileHeight": 32,
+  "playerStartX": 300,
+  "playerStartY": 400,
+  "nextLevel": "GrassLandsStartRoom"
+}
