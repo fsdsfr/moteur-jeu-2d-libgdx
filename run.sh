@@ -8,7 +8,14 @@ echo "========================================"
 echo
 
 # Vérifier si Gradle est disponible
-if ! command -v gradle &> /dev/null; then
+GRADLE_CMD="gradle"
+LOCAL_GRADLE="./.gradle_local/gradle-8.5/bin/gradle"
+
+if [ -f "$LOCAL_GRADLE" ]; then
+    echo "[INFO] Using local Gradle: $LOCAL_GRADLE"
+    GRADLE_CMD="$LOCAL_GRADLE"
+    chmod +x "$LOCAL_GRADLE"
+elif ! command -v gradle &> /dev/null; then
     echo "[ERREUR] Gradle n'est pas installé ou pas dans le PATH"
     echo "Veuillez installer Gradle depuis https://gradle.org/"
     exit 1
@@ -26,7 +33,7 @@ echo
 
 # Compilation
 echo "[COMPILATION] Compilation du projet..."
-gradle clean build
+$GRADLE_CMD clean build
 if [ $? -ne 0 ]; then
     echo "[ERREUR] La compilation a échoué"
     exit 1
@@ -37,4 +44,4 @@ echo
 
 # Lancement
 echo "[LANCEMENT] Démarrage du jeu..."
-gradle run
+$GRADLE_CMD run
