@@ -1,4 +1,4 @@
-@echo off
+т@echo off
 setlocal
 REM Script de lancement du jeu LibGDX Platformer
 REM Windows batch file
@@ -9,6 +9,19 @@ echo ========================================
 echo.
 
 set "LOCAL_GRADLE=%~dp0.gradle_local\gradle-8.5\bin\gradle.bat"
+
+REM --- DETECTION AUTOMATIQUE DE JAVA (JDK 17+) ---
+REM Recherche des JDK compatibles dans les emplacements standards (Priorite aux versions plus recentes)
+if not defined JAVA_HOME_FORCE (
+    for %%v in (25 24 23 22 21 20 19 18 17) do (
+        if exist "%ProgramFiles%\Java\jdk-%%v" (
+            set "JAVA_HOME=%ProgramFiles%\Java\jdk-%%v"
+            echo [INFO] Auto-detected compatible JDK: %%v at %ProgramFiles%\Java\jdk-%%v
+            goto :java_check_done
+        )
+    )
+)
+:java_check_done
 
 REM S'assurer que JAVA_HOME est valide (Gradle s'appuie souvent dessus)
 if defined JAVA_HOME (
